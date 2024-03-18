@@ -21,6 +21,12 @@ FFTSpectrumAnalyzerAudioProcessorEditor::FFTSpectrumAnalyzerAudioProcessorEditor
     setOpaque(true);
     setSize (1300, 1000);
     startTimer(500); // Timer callback in milliseconds  
+    addAndMakeVisible(basicButton);
+    basicButton.setClickingTogglesState(true);
+    basicButton.onClick = [&]() { 
+        const auto message = basicButton.getToggleState() ? "Clicked" : "Not Clicked";
+        printf("I do not zoom"); 
+    };
 }
 
 FFTSpectrumAnalyzerAudioProcessorEditor::~FFTSpectrumAnalyzerAudioProcessorEditor()
@@ -158,5 +164,6 @@ void FFTSpectrumAnalyzerAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
+    basicButton.setBounds(getWidth() / 2 - 50, getHeight() / 2 - 25, 100, 50);
 }
 
