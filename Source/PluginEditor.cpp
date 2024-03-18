@@ -25,7 +25,8 @@ FFTSpectrumAnalyzerAudioProcessorEditor::FFTSpectrumAnalyzerAudioProcessorEditor
     basicButton.setClickingTogglesState(true);
     basicButton.onClick = [&]() { 
         const auto message = basicButton.getToggleState() ? "Clicked" : "Not Clicked";
-        printf("I do not zoom"); 
+        printf(message);
+        basicButton.setButtonText(message);
     };
 }
 
