@@ -30,7 +30,8 @@ private:
     // access the processor object that created it.
     FFTSpectrumAnalyzerAudioProcessor& audioProcessor;
     static bool isRunning;
-    juce::TextButton basicButton{"Does not Zoom"};
+    juce::TextButton basicButton{"Click me"};
+    juce::ComboBox dropDown{"Selection"};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FFTSpectrumAnalyzerAudioProcessorEditor)
 };

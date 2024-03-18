@@ -22,12 +22,15 @@ FFTSpectrumAnalyzerAudioProcessorEditor::FFTSpectrumAnalyzerAudioProcessorEditor
     setSize (1300, 1000);
     startTimer(500); // Timer callback in milliseconds  
     addAndMakeVisible(basicButton);
+    addAndMakeVisible(dropDown);
     basicButton.setClickingTogglesState(true);
     basicButton.onClick = [&]() { 
         const auto message = basicButton.getToggleState() ? "Clicked" : "Not Clicked";
         printf(message);
         basicButton.setButtonText(message);
     };
+    juce::StringArray options = { "one", "two", "three" };
+    dropDown.addItemList(options, 1);
 }
 
 FFTSpectrumAnalyzerAudioProcessorEditor::~FFTSpectrumAnalyzerAudioProcessorEditor()
@@ -166,5 +169,6 @@ void FFTSpectrumAnalyzerAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
     basicButton.setBounds(getWidth() / 2 - 50, getHeight() / 2 - 25, 100, 50);
+    dropDown.setBounds(getWidth() / 2 - 50, getHeight() / 2 + 50, 100, 50);
 }
 
